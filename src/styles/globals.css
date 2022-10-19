@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .toRightSide {
+        @apply cursor-pointer hover:underline
+    }
+}
