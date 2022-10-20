@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import { SearchIcon, ShoppingCartIcon } from '@heroicons/react/outline'
+import { MenuIcon, SearchIcon, ShoppingCartIcon } from '@heroicons/react/outline'
 
 export default function Header() {
   return (
@@ -44,8 +44,19 @@ export default function Header() {
         </div>
       
       {/* Bottum nav */}
-      <div>
-
+      <div className='bg-amazon_blue-light space-x-3 p-2 pl-6 text-center text-white text-sm flex items-center'>
+        <p className='toRightSide flex items-center'>
+          <MenuIcon className='h-6 mr-6'/>
+          All</p>
+        <p className='toRightSide'>Prime Video</p>
+        <p className='toRightSide'>Today's Deal</p>
+        <p className='toRightSide hidden sm:inline '>Electronics</p>
+        <p className='toRightSide hidden sm:inline'>Amazon Business</p>
+        <p className='toRightSide hidden sm:inline'>Food & Grocery</p>
+        <p className='toRightSide hidden lg:inline'>Prime</p>
+        <p className='toRightSide hidden lg:inline'>Buy Again</p>
+        <p className='toRightSide hidden lg:inline'>Shopper toolkit</p>
+        <p className='toRightSide hidden lg:inline'>Health and Persanal Care</p>
       </div>
     </header>
   )
