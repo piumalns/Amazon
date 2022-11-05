@@ -2,8 +2,11 @@ import Head from "next/head";
 import Header from "../components/Header";
 import Banner from "../components/Banner";
 import ProductFeed from "../components/ProductFeed";
+import { selectItems } from "../slices/basketSlice"
+import { useSelector } from "react-redux";
 
 export default function Home({products}) {
+
   
   return (
     <div className="bg-gray-100">

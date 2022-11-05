@@ -1,14 +1,23 @@
 import React from 'react'
 import Image from 'next/image'
 import { MenuIcon, SearchIcon, ShoppingCartIcon } from '@heroicons/react/outline'
+import { signIn, signOut, useSession } from 'next-auth/client'
+import { useRouter } from "next/router"
+import { selectItems } from "../slices/basketSlice"
+import { useSelector } from 'react-redux'
 
 export default function Header() {
+
+  const selectItem = useSelector(selectItems);
+
+  const router = useRouter();
   return (
     <header>
         {/* Top nav */}
       <div className="flex items-center bg-amazon_blue p-1 flex-grow py-2" >
         <div className='mt-2 flex items-center flex-grow sm:flex-grow-0'>
             <Image 
+                onClick={()=>router.push('/')}
                 src='https://links.papareact.com/f90'
                 width={150}
                 height={40}
@@ -24,7 +33,7 @@ export default function Header() {
 
         {/* right side */}
           <div className='text-white flex items-center mx-6 text-xs space-x-6 whitespace-nowrap'>
-            <div className='toRightSide' >
+            <div onClick={signIn} className='toRightSide' >
               <p>Hi, Nayana Supun</p>
               <p className='font-extrabold md:text-sm'>Account & Lists</p>
             </div>
@@ -34,8 +43,8 @@ export default function Header() {
               <p className='font-extrabold md:text-sm'>& Order</p>
             </div >
 
-            <div className='toRightSide relative flex items-center'>
-              <span className='absolute top-0 right-0 md:right-10 h-4 w-4 bg-yellow-200 text-center rounded-full font-bold text-black'>0</span>
+            <div onClick={()=> router.push('/checkout')} className='toRightSide relative flex items-center'>
+              <span className='absolute top-0 right-0 md:right-10 h-4 w-4 bg-yellow-200 text-center rounded-full font-bold text-black'>{selectItem.length}</span>
               <ShoppingCartIcon className='h-10' />
               
               <p className='font-extrabold md:text-sm hidden md:inline mt-2'>Basket</p>
